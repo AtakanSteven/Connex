@@ -1,7 +1,6 @@
 import helmet from 'helmet';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
 import { ResponseDecorator } from './common/response-decorator/responseDecorator.interceptor';
 import { Swagger } from './swagger/swagger';
 import { HttpExceptionFilter } from './common/response-decorator/errorDecorator';
@@ -16,7 +15,6 @@ async function bootstrap() {
   app.enableCors();
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalInterceptors(new ResponseDecorator());
-  app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
   app.use(helmet({ crossOriginOpenerPolicy: false, crossOriginEmbedderPolicy: false, contentSecurityPolicy: false, crossOriginResourcePolicy: false }));
 
   /**
