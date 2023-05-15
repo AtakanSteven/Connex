@@ -81,7 +81,7 @@ connex/
 
 ## 3. Default NPM commands
 
-The NPM commands below can be used to quickly run, build and test Jupap.
+The NPM commands below can be used to quickly run, build and test.
 
 - `npm run start`- Start application
 
